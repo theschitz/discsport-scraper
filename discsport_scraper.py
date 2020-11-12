@@ -2,8 +2,9 @@ import requests
 from time import sleep
 from bs4 import BeautifulSoup
 import re
+import webbrowser
 
-SLEEPY_TIME = 60 * 20
+SLEEPY_TIME = 60 * 20 # 20 minutes
 
 
 def is_available(url) -> bool:
@@ -25,6 +26,9 @@ if __name__ == "__main__":
         print("[*] Item is not available...")
         sleep(SLEEPY_TIME)
     print("[!] Item is available!")
+    
+    # Open new tab in defaul browser. Auto raise if possible
+    webbrowser.open(wanted_item, 2)
 
 
 
